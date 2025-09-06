@@ -4,12 +4,13 @@ import { FaReact, FaFigma } from 'react-icons/fa';
 const ElectricStackBubbles = () => {
   return (
     <div style={{ 
-      height: '100vh', 
-      backgroundColor: '#0a0a0a', 
+      
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center',
-      position: 'relative'
+      position: 'absolute',
+      top: '90px',
+      height: '30vh'
     }}>
       {/* SVG Filter Definition */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -121,9 +122,9 @@ const ElectricStackBubbles = () => {
 
         .stack-bubbles {
           display: flex;
-          gap: 100px;
+          gap: 170px;
           position: absolute;
-          // top: 50%;
+          // top:200px;
           left: 50%;
           
           width: 100%;
@@ -322,6 +323,9 @@ const ElectricStackBubbles = () => {
             .stack-bubble{
             height:100px;
 
+            }
+            .stack-bubbles{
+            gap:150px;
             }
             .card-container{
               width:100px;
