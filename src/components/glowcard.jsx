@@ -9,7 +9,7 @@ const ElectricStackBubbles = () => {
       justifyContent: 'center', 
       alignItems: 'center',
       position: 'absolute',
-      top: '90px',
+      top: '100px',
       height: '30vh'
     }}>
       {/* SVG Filter Definition */}

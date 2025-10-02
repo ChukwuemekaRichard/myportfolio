@@ -11,7 +11,7 @@ import singleLogo from "./assets/mainlogo.png"
 
 import OnePlug from "./assets/oneplugTemplate.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Twitter, User } from "lucide-react";
+import { ArrowDown, ArrowDown01, ArrowDownCircle, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Twitter, User } from "lucide-react";
 import Lenis from "@studio-freight/lenis";
 import { LuPiggyBank } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -364,8 +364,8 @@ export default function Portfolio() {
 
           </div>
           <div className="close-btn">
-            <button>Hire me</button>
-            <BadgeCheck />
+            <button>Download CV</button>
+            <ArrowDownCircle />
 
           </div>
 
@@ -480,7 +480,7 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
-      <section id="about" className="about-section">
+      {/* <section id="about" className="about-section">
         <div>
           <h2 className="section-title d">About</h2>
           <p className="about-text">
@@ -508,10 +508,10 @@ export default function Portfolio() {
             <div className="skill">Node.js</div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
-      <section id="contact" className="contact-section">
+      {/* <section id="contact" className="contact-section">
         <h2 className="contact-title">Let's work together</h2>
         <a href="mailto:hello@yourname.com" className="contact-email">
           hello@yourname.com
@@ -530,7 +530,7 @@ export default function Portfolio() {
             Dribbble
           </a>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
