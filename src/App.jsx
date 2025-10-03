@@ -12,7 +12,7 @@ import singleLogo from "./assets/mainlogo.png"
 
 import OnePlug from "./assets/oneplugTemplate.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowDown01, ArrowDownCircle, ArrowUp, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Plane, Send, Twitter, User } from "lucide-react";
+import { ArrowDown, ArrowDown01, ArrowDownCircle, ArrowUp, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Plane, Quote, Send, Twitter, User } from "lucide-react";
 import Lenis from "@studio-freight/lenis";
 import { LuPiggyBank } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -22,6 +22,7 @@ import { FaGithub, FaTwitter, FaLinkedin, FaPinterest, FaInstagram, FaWhatsapp, 
 import { FaXTwitter } from "react-icons/fa6";
 import { RiNextjsFill } from "react-icons/ri";
 import { PiPaperPlane } from "react-icons/pi";
+import CustomCursor from "./components/custom-cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -214,8 +215,8 @@ export default function Portfolio() {
       type: "FRONT END",
       status: "COMPLETED",
       image: Bansoga,
-      name: "Bansoga",
-      link: "bansoga.com",
+      name: "Bansonga",
+      link: "https://www.bansonga.com/",
       stack: [
         {
           name: "React",
@@ -286,6 +287,7 @@ export default function Portfolio() {
   return (
     <div className="portfolio-container">
       <div className="grid"></div>
+      <CustomCursor/>
 
       <nav className="nav">
         <div className="nav-inner">
@@ -379,14 +381,62 @@ export default function Portfolio() {
         </div>
 
       </div>
-      <div className="welcome-section">
-        <div className="welcomegrid">
-        
-            <div className="welcome-right">
-              <h2>Welcome To My portfolio im chukwuemeka a passionate webdeveloper and ui/ux designer based in enugu nigeria i specialize in creating visually appealing and user-friendly websites.</h2>
+      <section className="welcome-section">
+        <div className="welcome-container">
+          <div className="welcome-avatar">
+            {/* <div className="avatar-glow"></div> */}
+            <img src={me2} alt="Chukwuemeka" />
+            <div className="sparkles">
+              <span className="sparkle">✦</span>
+              <span className="sparkle">✦</span>
+              <span className="sparkle">✦</span>
             </div>
+          </div>
+
+          <div className="welcome-content">
+            <div className="animated-text-wrapper">
+              {/* Selection Box */}
+              <div className="selection-box">
+                <div className="corner top-left"></div>
+                <div className="corner top-right"></div>
+                <div className="corner bottom-left"></div>
+                <div className="corner bottom-right"></div>
+              </div>
+
+              {/* Animated Cursor */}
+              <div className="animated-cursor">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 3L3 21L12 16L16.5 18L20.5 22L5 3Z"
+                    fill="#02AAB0"
+                    stroke="white"
+                    strokeWidth="1"
+                  />
+                </svg>
+                <div className="cursor-label">Chukwuemeka</div>
+              </div>
+
+              <h2 className="welcome-greeting">Hey, I'm Chukwuemeka.</h2>
+            </div>
+
+            <p className="welcome-intro">
+              I create premium websites for ambitious, design-driven people.
+            </p>
+
+            <p className="welcome-description">
+              Wielding world-class React development and robust, elegant code,
+              I captivate audiences with intuitive interfaces, seamless animations,
+              and pixel-perfect designs.
+            </p>
+
+            <p className="welcome-detail">
+              I focus on the details so that you don't have to, offering collaborative
+              development throughout the project and beyond. In short, I am a
+              multidisciplinary frontend developer who brings ideas to life.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
       <div className="about-section">
 
       </div>
@@ -422,6 +472,12 @@ export default function Portfolio() {
                   <span>Visit Site</span>
                   <ArrowUp size={24} className="ttspan" />
                 </div>
+              </div>
+              <div className="project-name">
+                <span>{project.name
+                }
+                  <div className="card-glow cyan"></div></span>
+
               </div>
             </Link>
           ))}
