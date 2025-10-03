@@ -325,7 +325,7 @@ const ElectricStackBubbles = () => {
 
             }
             .stack-bubbles{
-            gap:150px;
+            gap:120px;
             }
             .card-container{
               width:100px;

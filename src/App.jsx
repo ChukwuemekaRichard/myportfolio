@@ -7,11 +7,12 @@ import ApwenFarm from "./assets/apwenfarm.png";
 import Bansoga from "./assets/Home.png"
 import Vbot from "./assets/Vbot.png"
 import vite from "./assets/vite.jpg"
+import gaze from "./assets/gaze.png"
 import singleLogo from "./assets/mainlogo.png"
 
 import OnePlug from "./assets/oneplugTemplate.png";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowDown01, ArrowDownCircle, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Twitter, User } from "lucide-react";
+import { ArrowDown, ArrowDown01, ArrowDownCircle, ArrowUp, Badge, BadgeCheck, Briefcase, ChevronDown, Grid2X2Icon, Home, List, Mail, Menu, Plane, Send, Twitter, User } from "lucide-react";
 import Lenis from "@studio-freight/lenis";
 import { LuPiggyBank } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ import ElectricStackBubbles from "./components/glowcard";
 import { FaGithub, FaTwitter, FaLinkedin, FaPinterest, FaInstagram, FaWhatsapp, FaReact, FaFigma, FaCss3, FaHtml5 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { RiNextjsFill } from "react-icons/ri";
+import { PiPaperPlane } from "react-icons/pi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,14 +35,18 @@ export default function Portfolio() {
   const rightBottomRef = useRef(null);
   const [ListStyle, setListStyle] = useState(true);
 
+  // First useEffect - Lenis initialization
   useEffect(() => {
-    // Initialize Lenis
+    // Detect mobile devices
+    const isMobile = window.innerWidth <= 768;
+
+    // Initialize Lenis with mobile-specific settings
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobile ? 0.8 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       gestureDirection: "vertical",
-      smooth: true,
+      smooth: !isMobile, // Disable smooth scroll on mobile
       mouseMultiplier: 1,
       smoothTouch: false,
       touchMultiplier: 2,
@@ -67,7 +73,7 @@ export default function Portfolio() {
       // Apply scroll-following transform to elements
       const currentScrollY = window.scrollY;
       if (leftTopRef.current && rightBottomRef.current) {
-        const scrollSpeed = currentScrollY * 1; // 1:1 ratio for same speed as scroll
+        const scrollSpeed = currentScrollY * 1;
         leftTopRef.current.style.transform = `translateY(-${scrollSpeed}px)`;
         rightBottomRef.current.style.transform = `translateY(-${scrollSpeed}px)`;
       }
@@ -91,13 +97,12 @@ export default function Portfolio() {
       const target = document.querySelector(targetId);
       if (target) {
         lenisRef.current.scrollTo(target, {
-          offset: -80, // Account for fixed navbar
+          offset: -80,
           duration: 1.5,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
       }
     }
-    // Close mobile menu after clicking
     setIsClicked(false);
   };
 
@@ -107,6 +112,7 @@ export default function Portfolio() {
   const aboutSectionRef = useRef(null);
   const contactSectionRef = useRef(null);
 
+  // Second useEffect - Time updates and GSAP animations
   useEffect(() => {
     // Time update
     const updateTime = () => {
@@ -190,15 +196,15 @@ export default function Portfolio() {
       stack: [
         {
           name: "React",
-          Icon: <FaReact />,
+          Icon: <FaReact color="#61DAFB" size={24} />,
         },
         {
           name: "Figma",
-          Icon: <FaFigma />,
+          Icon: <FaFigma color="#F24E1E" size={24} />,
         },
         {
           name: "css",
-          Icon: <FaCss3 />,
+          Icon: <FaCss3 color="#1572B6" size={24} />,
         },
       ]
     },
@@ -213,20 +219,19 @@ export default function Portfolio() {
       stack: [
         {
           name: "React",
-          Icon: <FaReact />,
+          Icon: <FaReact color="#61DAFB" size={24} />,
         },
         {
           name: "Figma",
-          Icon: <FaFigma />,
+          Icon: <FaFigma color="#F24E1E" size={24} />,
         },
         {
           name: "css",
-          Icon: <FaCss3 />,
+          Icon: <FaCss3 color="#1572B6" size={24} />,
         },
         {
           name: "Next.js",
-          Icon: <RiNextjsFill />
-
+          Icon: <RiNextjsFill color="#000000" size={24} />
         }
       ]
     },
@@ -237,20 +242,19 @@ export default function Portfolio() {
       status: "LIVE",
       image: OnePlug,
       name: "One Plug",
-
       link: "https://onetest-001.netlify.app/",
       stack: [
         {
           name: "React",
-          Icon: <FaReact />,
+          Icon: <FaReact color="#61DAFB" size={24} />,
         },
         {
           name: "Figma",
-          Icon: <FaFigma />,
+          Icon: <FaFigma color="#F24E1E" size={24} />,
         },
         {
           name: "css",
-          Icon: <FaCss3 />,
+          Icon: <FaCss3 color="#1572B6" size={24} />,
         }
       ]
     },
@@ -265,48 +269,23 @@ export default function Portfolio() {
       stack: [
         {
           name: "React",
-          Icon: <FaReact />,
+          Icon: <FaReact color="#61DAFB" size={24} />,
         },
         {
           name: "Figma",
-          Icon: <FaFigma />,
+          Icon: <FaFigma color="#F24E1E" size={24} />,
         },
         {
           name: "css",
-          Icon: <FaCss3 />,
+          Icon: <FaCss3 color="#1572B6" size={24} />,
         }
       ]
     },
-    // {
-    //   title: "VIBETBIO",
-    //   year: "2025",
-    //   type: "FRONT END",
-    //   status: "COMPLETED",
-    //   image: NewProjectImage,
-    //   name: "VibetBio",
-    //   link: "https://vibetbio.com",
-    //   stack: [
-    //     {
-    //       name: "React",
-    //       Icon: <FaHtml5/>,
-    //     },
-    //     {
-    //       name: "JavaScript",
-    //       Icon: <FaJsSquare />,
-    //     },
-    //     {
-    //       name: "css",
-    //       Icon: <FaCss3 />,
-    //     }
-    //   ]
-    // }
   ];
 
   return (
     <div className="portfolio-container">
-      <div className="grid">
-
-      </div>
+      <div className="grid"></div>
 
       <nav className="nav">
         <div className="nav-inner">
@@ -327,7 +306,7 @@ export default function Portfolio() {
                 scrollToSection("body");
               }}
             >
-              <Home />
+              Home
             </a>
             <a
               href="#work"
@@ -337,7 +316,7 @@ export default function Portfolio() {
                 scrollToSection("#work");
               }}
             >
-              <Briefcase />
+              Projects
             </a>
             <a
               href="#about"
@@ -347,7 +326,7 @@ export default function Portfolio() {
                 scrollToSection("#about");
               }}
             >
-              <User />
+              About
             </a>
             <a
               href="#contact"
@@ -357,99 +336,63 @@ export default function Portfolio() {
                 scrollToSection("#contact");
               }}
             >
-              <Mail />
+              Contact ME
             </a>
-
-
-
           </div>
+
           <div className="close-btn">
+            <div className="card-glow cyan"></div>
             <button>Download CV</button>
             <ArrowDownCircle />
-
           </div>
-
         </div>
       </nav>
-
-      {/* Hero Section */}
-      <section className="hero" ref={heroRef}>
-
-        <div className="hero-text-container">
-          <ElectricStackBubbles />
-          <div className="text-left">
-            <h1>Hi,</h1>
-            <h1>I`m Chukwuemeka</h1>
-            {/* <p>A front  end dev</p> */}
-
-            <div className="search-bar">
-              <input type="email" />
-              <button>Email Me </button>
+      <div className="hero-2">
+        <div className="absolut-emg">
+          <img src={gaze} alt="" />
+        </div>
+        <div className="left-h2">
+          <p>hi 👋 i'm Chukwuemeka</p>
+          <h1>Design and </h1>
+          <h1>Code Beautiful</h1>
+          <button className="talk-button">
+            <div className="card-glow cyan"></div>
+            Let's Talk <Send />
+          </button>
+        </div>
+        <div className="right-hero-buttom">
+          <div className="stats-row">
+            <div className="stat">
+              <span className="stat-number">5+</span>
+              <span className="stat-label">Years Experience</span>
             </div>
-            {/* <div className="stack-bubbles">
-              <div className="stack-bubble" id="react">
-               <FaReact color="#61DAFB" size={70} />
-              </div>
-              
-              <div className="stack-bubble" id="figma">
-               <FaFigma color="#F24E1E" size={70}  />
-              </div>
-            </div> */}
-
-            <div className="social">
-
-              <div className="scl">
-                <FaGithub size={24} color=" #40C463" />
-                <p>GitHub</p>
-                <div className="ball-graident" style={{ background: "#40C463" }}>
-
-                </div>
-              </div>
-              <div className="scl">
-                <FaXTwitter size={20} color="#FFFFFF" />
-                <p>Twitter</p>
-                <div className="ball-graident" style={{ background: "white" }}>
-
-                </div>
-              </div>
-              <div className="scl">
-                <FaLinkedin size={24} color="#0077B5" />
-                <p>LinkedIn</p>
-                <div className="ball-graident" style={{ background: "#0077B5" }}>
-                </div>
-              </div>
-              <div className="scl">
-                <FaInstagram size={24} color="#E4405F" />
-                <p>Instagram</p>
-                <div className="ball-graident" style={{ background: "linear-gradient(89deg, #E4405F 0%, #C13584 100%)" }}>
-
-                </div>
-              </div>
-              <div className="scl">
-                <FaWhatsapp size={24} color="#25D366" />
-                <p>WhatsApp</p>
-                <div className="ball-graident" style={{ background: "#25D366" }}>
-
-                </div>
-              </div>
-
+            <div className="stat">
+              <span className="stat-number">20+</span>
+              <span className="stat-label">Completed Projects</span>
+            </div>
+            <div className="stat">
+              <span className="stat-number">10+</span>
+              <span className="stat-label">Happy Clients</span>
             </div>
           </div>
-          <div className="text-right">
-
-          </div>
 
         </div>
-        <div className="hero-abs-2">
 
+      </div>
+      <div className="welcome-section">
+        <div className="welcomegrid">
+        
+            <div className="welcome-right">
+              <h2>Welcome To My portfolio im chukwuemeka a passionate webdeveloper and ui/ux designer based in enugu nigeria i specialize in creating visually appealing and user-friendly websites.</h2>
+            </div>
         </div>
-        <div className="hero-abs4">
+      </div>
+      <div className="about-section">
 
-        </div>
-      </section>
+      </div>
       <section id="work" className="projects-section">
         <div className="header-filter">
-          <h2 className="section-title a">Projects</h2>
+          <h2 className="section-title a">Checkout Some Of My Work</h2>
         </div>
         <div className={`project-grid ${ListStyle ? "" : "grid"}`}>
           {projects.map((project, index) => (
@@ -465,8 +408,6 @@ export default function Portfolio() {
                     <span>{project.type}</span>
                   </div>
                   <div className="project-stack">
-
-
                     {project.stack.map((tech, i) => (
                       <span key={i} className="tech-stack">
                         {tech.Icon} {tech.name}
@@ -476,61 +417,24 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="project-status">{project.status}</div>
+              <div className="project-visit">
+                <div className="main-pjvisit">
+                  <span>Visit Site</span>
+                  <ArrowUp size={24} className="ttspan" />
+                </div>
+              </div>
             </Link>
           ))}
         </div>
       </section>
-      {/* <section id="about" className="about-section">
-        <div>
-          <h2 className="section-title d">About</h2>
-          <p className="about-text">
-            I'm a freelance designer and developer with over 5 years of
-            experience creating digital products for startups and established
-            companies. I specialize in React development, UI/UX design, and
-            brand identity.
-          </p>
-          <p className="about-text">
-            My approach combines strategic thinking with creative execution,
-            ensuring every project delivers both aesthetic appeal and functional
-            excellence.
-          </p>
+      <div className="footer-main">
+        <div className="footer-sec">
+          <p>Let's turn your figma ideas to realities </p>
+          {/* <h2>Emekaokoro281@gmail.com</h2> */}
         </div>
-      </section>
-      <section>
-        <div>
-          <h3 className="section-title c">Skills</h3>
-          <div className="skills-list">
-            <div className="skill">React & Next.js</div>
-            <div className="skill">UI/UX Design</div>
-            <div className="skill">Brand Identity</div>
-            <div className="skill">Frontend Development</div>
-            <div className="skill">Figma & Adobe CC</div>
-            <div className="skill">Node.js</div>
-          </div>
-        </div>
-      </section> */}
 
-      {/* Contact Section */}
-      {/* <section id="contact" className="contact-section">
-        <h2 className="contact-title">Let's work together</h2>
-        <a href="mailto:hello@yourname.com" className="contact-email">
-          hello@yourname.com
-        </a>
-        <div className="social-links">
-          <a href="#" className="social-link">
-            LinkedIn
-          </a>
-          <a href="#" className="social-link">
-            Twitter
-          </a>
-          <a href="#" className="social-link">
-            GitHub
-          </a>
-          <a href="#" className="social-link">
-            Dribbble
-          </a>
-        </div>
-      </section> */}
+      </div>
+
     </div>
   );
 }
