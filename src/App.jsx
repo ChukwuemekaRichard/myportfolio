@@ -315,9 +315,9 @@ export default function Portfolio() {
         <div className="nav-inner">
           <div className="logo">
             {window.innerWidth < 780 ? (
-              <img src={singleLogo} alt="Logo" />
+              <img src={me2} alt="Logo" />
             ) : (
-              <img src={mainLogo} alt="Logo" />
+              <img src={me2} alt="Logo" />
             )}
           </div>
 {/* 
@@ -373,7 +373,7 @@ export default function Portfolio() {
       </nav>
       <div className="hero-2">
         <div className="absolut-emg">
-          <img src={gaze} alt="" />
+          {/* <img src={gaze} alt="" /> */}
         </div>
         <div className="left-h2">
           <p>hi 👋 i'm Chukwuemeka</p>
