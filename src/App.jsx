@@ -8,6 +8,7 @@ import Bansoga from "./assets/Home.png"
 import Vbot from "./assets/Vbot.png"
 import vite from "./assets/vite.jpg"
 import gaze from "./assets/gaze.png"
+import npjBaner from "./assets/npj-banner2.png"
 import singleLogo from "./assets/mainlogo.png"
 
 import OnePlug from "./assets/oneplugTemplate.png";
@@ -213,7 +214,7 @@ export default function Portfolio() {
       title: "GAMING ACCOUNT MARKETPLACE",
       year: "2024",
       type: "FRONT END",
-      status: "COMPLETED",
+      status: "LIVE",
       image: Bansoga,
       name: "Bansonga",
       link: "https://www.bansonga.com/",
@@ -259,6 +260,7 @@ export default function Portfolio() {
         }
       ]
     },
+
     {
       title: "FOREX TRADING BOT MARKETPLACE",
       year: "2023",
@@ -282,12 +284,32 @@ export default function Portfolio() {
         }
       ]
     },
+    {
+      title: "YOUR PROJECT HERE",
+      year: "2025?",
+      type: "FRONTEND? OR UI/UX DESIGN?",
+      status: "COMING SOON 🔥 ",
+      image: npjBaner,
+      name: "YOUR PROJECT 🫣",
+      link: "#",
+      stack: [
+        {
+          name: "REACT?",
+          Icon: <FaReact color="#ccc" size={24} />,
+        },
+        {
+          name: "FIGMA?",
+          Icon: <FaFigma color="#ccc" size={24} />,
+        }
+      ]
+
+    },
   ];
 
   return (
     <div className="portfolio-container">
       <div className="grid"></div>
-      <CustomCursor/>
+      <CustomCursor />
 
       <nav className="nav">
         <div className="nav-inner">
@@ -298,7 +320,7 @@ export default function Portfolio() {
               <img src={mainLogo} alt="Logo" />
             )}
           </div>
-
+{/* 
           <div className="nav-scroled ">
             <a
               href="#"
@@ -340,7 +362,7 @@ export default function Portfolio() {
             >
               Contact ME
             </a>
-          </div>
+          </div> */}
 
           <div className="close-btn">
             <div className="card-glow cyan"></div>
@@ -443,6 +465,9 @@ export default function Portfolio() {
       <section id="work" className="projects-section">
         <div className="header-filter">
           <h2 className="section-title a">Checkout Some Of My Work</h2>
+          <div className="background-text">
+            <h2>Live Projects</h2>
+          </div>
         </div>
         <div className={`project-grid ${ListStyle ? "" : "grid"}`}>
           {projects.map((project, index) => (
@@ -483,11 +508,29 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
-      <div className="footer-main">
-        <div className="footer-sec">
-          <p>Let's turn your figma ideas to realities </p>
-          {/* <h2>Emekaokoro281@gmail.com</h2> */}
+      <section className="letswork">
+
+        <div className="left-lw">
+          <div className="lets-work">
+            <h2>Let's Work Together</h2>
+            <p>I'm available for freelance projects. Let's create something amazing together!</p>
+            <button className="talk-button">
+              <div className="card-glow cyan"></div>
+              Hire Me <PiPaperPlane />
+            </button>
+
+          </div>
+
+
         </div>
+        <div className="right-lw">
+          
+        </div>
+
+
+      </section>
+      <div className="footer-main">
+      
 
       </div>
 
