@@ -193,10 +193,10 @@ export default function AboutPage() {
         <div className="about-narrative-box reveal-on-scroll">
           <h2 className="narrative-heading">Background &amp; Story</h2>
           <p className="narrative-lead">
-            Emeka Okoro (known online as <strong>FrontEndDoctor</strong>) is a frontend developer and UI/UX designer with about 6 years of experience building digital products across fintech, agritech, healthtech, and e-commerce. He works across the full product cycle — from Figma wireframes and design systems to shipped, production-ready interfaces — and has led design and development on projects like Emburse, a fintech app combining escrow with crypto-to-Naira conversion.
+            Hey there! I'm Emeka Okoro (known online as <strong>FrontEndDoctor</strong>). Over the past 6 years, I've been designing and engineering digital experiences that feel smooth, intentional, and alive — spanning fintech, agritech, healthtech, and modern marketplace platforms. I work right at the sweet spot between Figma wireframes and clean, production-ready React code.
           </p>
           <p className="narrative-text">
-            Alongside client and freelance work, Emeka is a 400-level electrical engineering student, giving him a technical grounding that shapes how he approaches problem-solving in software. He also teaches front-end development informally, helping newcomers get comfortable with HTML, CSS, and the fundamentals of building for the web.
+            When I'm not crafting pixel-perfect interfaces for clients, I'm navigating my 400-level Electrical Engineering degree. That technical background gives me a deep appreciation for system architecture, logic, and solving complex problems from first principles. I also love giving back — spending time informally tutoring beginners in HTML, CSS, and web fundamentals to help them build confidence with code.
           </p>
         </div>
       </section>
