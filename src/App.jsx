@@ -126,10 +126,8 @@ export default function Portfolio() {
 
       {/* Navbar matching reference design */}
       <nav className={`navbar ${isMobileMenuOpen ? "mobile-menu-active" : ""}`}>
-        <Link to="/" className="nav-brand" onClick={() => setIsMobileMenuOpen(false)} title="Emeka Portfolio">
-          <div className="nav-brand-avatar">
-            <img src={avatarFocused} alt="Emeka Logo" className="nav-brand-img" />
-          </div>
+        <Link to="/" className="nav-brand" onClick={() => setIsMobileMenuOpen(false)}>
+          Emeka
         </Link>
 
         {/* Right Section: Nav Items followed by Action Buttons */}
