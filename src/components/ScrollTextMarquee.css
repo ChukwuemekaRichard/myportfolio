@@ -1,0 +1,41 @@
+/* Scroll Velocity Marquee Section */
+.marquee-section-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 36px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin: 40px 0 60px;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.marquee-text-item {
+  font-size: 5.5rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--text-primary, #111111);
+  font-family: var(--font-family, 'Questrial', sans-serif);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .marquee-section-container {
+    padding: 24px 0;
+    margin: 20px 0 40px;
+  }
+
+  .marquee-text-item {
+    font-size: 3.2rem;
+  }
+}

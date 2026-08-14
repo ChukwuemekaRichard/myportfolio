@@ -1,0 +1,474 @@
+/* About Page Main Container */
+.about-page-container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 40px 48px 120px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+/* Back Navigation Bar */
+.about-nav-bar {
+  margin-bottom: 48px;
+}
+
+/* Hero Header */
+.about-hero-header {
+  margin-bottom: 64px;
+}
+
+.about-hero-tag {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-orange, #ff4a38);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.about-hero-title {
+  font-size: 4.8rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text-primary, #111111);
+  font-family: var(--font-family, 'Questrial', sans-serif);
+  margin: 0;
+}
+
+/* Profile Section & Stats Grid */
+.about-profile-section {
+  margin-bottom: 100px;
+}
+
+.about-profile-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+  margin-bottom: 64px;
+}
+
+.about-profile-image-frame {
+  width: 100%;
+  height: 480px;
+  background-color: #28292e;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.about-profile-image-frame:hover .about-profile-image {
+  transform: scale(1.04);
+}
+
+.about-stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.stat-card {
+  background-color: var(--pill-bg, #efece6);
+  padding: 32px 36px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background-color: var(--pill-bg-hover, #e2ddd3);
+}
+
+.stat-number {
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--text-primary, #111111);
+  font-family: var(--font-family, 'Questrial', sans-serif);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #555555);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Narrative Story (Unboxed Editorial Flow) */
+.about-narrative-box {
+  background-color: transparent;
+  padding: 48px 0 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.12));
+  margin-top: 48px;
+}
+
+.narrative-heading {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--text-primary, #111111);
+  margin: 0 0 24px;
+  font-family: var(--font-family, 'Questrial', sans-serif);
+}
+
+.narrative-lead {
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: var(--text-primary, #111111);
+  font-weight: 400;
+  margin: 0 0 24px;
+}
+
+.narrative-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #555555);
+  margin: 0;
+}
+
+/* Visual Banner */
+.about-visual-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 100px;
+}
+
+.banner-img-box {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background-color: #3e3e3e;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.banner-img-box:hover .banner-img {
+  transform: scale(1.05);
+}
+
+/* Capabilities & Skills Section */
+.about-skills-section {
+  margin-bottom: 110px;
+}
+
+.section-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-orange, #ff4a38);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--text-primary, #111111);
+  margin: 0 0 48px;
+  font-family: var(--font-family, 'Questrial', sans-serif);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.skill-card {
+  background-color: var(--pill-bg, #efece6);
+  padding: 40px 32px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  background-color: var(--pill-bg-hover, #e2ddd3);
+}
+
+.skill-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--accent-orange, #ff4a38);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text-primary, #111111);
+  font-family: var(--font-family, 'Questrial', sans-serif);
+}
+
+.skill-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-card-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  color: #333333;
+}
+
+.sparkle-icon {
+  color: var(--accent-orange, #ff4a38);
+}
+
+/* Hobbies & Beyond Work Interactive Showcase */
+.about-hobbies-section {
+  margin-bottom: 120px;
+}
+
+.hobbies-deck-showcase {
+  display: grid;
+  grid-template-columns: 1fr 380px 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.hobby-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hobby-side-col.left-col {
+  text-align: right;
+}
+
+.hobby-side-col.right-col {
+  text-align: left;
+}
+
+.hobby-statement-item p {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary, #111111);
+  line-height: 1.45;
+  margin: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Center Stacked Photo Deck */
+.hobby-deck-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.hobby-card-stack {
+  position: relative;
+  width: 360px;
+  height: 480px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.stacked-photo-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  border: 4px solid var(--bg-card, #ffffff);
+}
+
+.card-pos-0 {
+  transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}
+
+.card-pos-1 {
+  transform: rotate(-6deg) translate3d(-15px, 15px, -20px) scale(0.95);
+  opacity: 0.85;
+}
+
+.card-pos-2 {
+  transform: rotate(6deg) translate3d(15px, 25px, -40px) scale(0.9);
+  opacity: 0.7;
+}
+
+.stacked-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.stacked-photo-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Controls */
+.hobby-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-hobby-nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--pill-bg, #efece6);
+  border: none;
+  color: var(--text-primary, #111111);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.btn-hobby-nav:hover {
+  background-color: var(--accent-orange, #ff4a38);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.hobby-counter {
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: var(--text-secondary, #888888);
+}
+
+/* Footer CTA */
+.about-footer-cta {
+  padding: 80px 48px;
+  background-color: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.12));
+  color: var(--text-primary, #111111);
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.about-footer-cta h2 {
+  font-size: 3.6rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--text-primary, #111111);
+  font-family: var(--font-family, 'Questrial', sans-serif);
+  max-width: 750px;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .about-hero-title {
+    font-size: 3.6rem;
+  }
+
+  .about-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-visual-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobbies-deck-showcase {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hobby-side-col.left-col,
+  .hobby-side-col.right-col {
+    text-align: center;
+  }
+
+  .hobby-card-stack {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page-container {
+    padding: 30px 24px 80px;
+  }
+
+  .about-hero-title {
+    font-size: 2.6rem;
+  }
+
+  .about-narrative-box {
+    padding: 32px 0;
+  }
+
+  .about-footer-cta {
+    padding: 60px 24px;
+    border-radius: 24px;
+  }
+
+  .about-footer-cta h2 {
+    font-size: 2.4rem;
+  }
+}
