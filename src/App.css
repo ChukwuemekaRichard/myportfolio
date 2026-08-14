@@ -91,15 +91,36 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--theme-transition);
 }
 
-/* Brand Logo */
+/* Brand Logo Avatar */
 .nav-brand {
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.02em;
-  font-family: 'Questrial', serif, sans-serif;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent-orange, #ff4a38);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.nav-brand:hover .nav-brand-avatar {
+  transform: scale(1.12) rotate(6deg);
+}
+
+.nav-brand-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Nav Menu Right Side */
@@ -241,39 +262,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--pill-bg-hover);
 }
 
-/* Header Action Group (Get in touch + Mobile Hamburger) */
-.nav-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  z-index: 1005;
-}
-
-/* Floating Dark/Light Mode Toggle Button (Always at Bottom Right) */
-.floating-theme-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 99999;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
-}
-
-.floating-theme-btn:hover {
-  transform: scale(1.1) rotate(12deg);
-}
-
 /* Mobile Hamburger Button (Hidden on Desktop) */
 .mobile-hamburger-btn {
   display: none;
@@ -287,6 +275,20 @@ h1, h2, h3, h4, h5, h6 {
 
   .mobile-hamburger-btn {
     display: flex;
+    z-index: 1005;
+  }
+
+  /* Transfer Dark/Light Theme Toggle to Floating Bottom Right Position on Mobile */
+  .theme-toggle-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    width: 52px;
+    height: 52px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
   }
 
   .btn-get-in-touch {
