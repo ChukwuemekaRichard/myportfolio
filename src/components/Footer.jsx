@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Hand, Github, Linkedin, Twitter, Dribbble, Mail } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import avatarFocused from "../assets/avatar_focused.png";
+import avatarSmiling from "../assets/avatar_smiling.png";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import "./Footer.css";
 
@@ -8,6 +9,7 @@ export default function Footer() {
   useScrollReveal("footer");
 
   const [timeString, setTimeString] = useState("");
+  const [isFooterAvatarHovered, setIsFooterAvatarHovered] = useState(false);
   const footerRef = useRef(null);
   const footerInnerRef = useRef(null);
 
@@ -59,7 +61,28 @@ export default function Footer() {
         <div className="footer-main-row reveal-on-scroll">
           {/* Left Column: Hero CTA */}
           <div className="footer-left-cta">
-            <span className="footer-cta-sub">GOT A PROJECT IN MIND?</span>
+            <div className="footer-avatar-header">
+              <div
+                className="footer-avatar-circle"
+                onMouseEnter={() => setIsFooterAvatarHovered(true)}
+                onMouseLeave={() => setIsFooterAvatarHovered(false)}
+                title="Hover to see me smile! 😊"
+              >
+                <img
+                  src={avatarFocused}
+                  alt="Emeka Avatar Focused"
+                  draggable="false"
+                  className={`footer-avatar-img ${!isFooterAvatarHovered ? "active" : ""}`}
+                />
+                <img
+                  src={avatarSmiling}
+                  alt="Emeka Avatar Smiling"
+                  draggable="false"
+                  className={`footer-avatar-img ${isFooterAvatarHovered ? "active" : ""}`}
+                />
+              </div>
+              <span className="footer-cta-sub">GOT A PROJECT IN MIND?</span>
+            </div>
             <h2 className="footer-cta-title">
               Let's work <br />
               together.

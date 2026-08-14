@@ -7,6 +7,8 @@ import npjImg from "../assets/npj-banner2.png";
 import chessImg from "../assets/chess.jpg";
 import rubiksImg from "../assets/rubicks cube.jpg";
 import tableTennisImg from "../assets/table_tennis.png";
+import avatarFocused from "../assets/avatar_focused.png";
+import avatarSmiling from "../assets/avatar_smiling.png";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import "./About.css";
 
@@ -84,6 +86,7 @@ const hobbiesData = [
 export default function AboutPage() {
   useScrollReveal("about");
   const [activeHobby, setActiveHobby] = useState(0);
+  const [isProfileHovered, setIsProfileHovered] = useState(false);
 
   const capabilities = [
     {
@@ -150,8 +153,22 @@ export default function AboutPage() {
       {/* Profile Image & Key Highlights */}
       <section className="about-profile-section">
         <div className="about-profile-grid">
-          <div className="about-profile-image-frame reveal-on-scroll">
-            <img src={meProfile} alt="Emeka Developer Profile" className="about-profile-image" />
+          <div
+            className="about-profile-image-frame reveal-on-scroll"
+            onMouseEnter={() => setIsProfileHovered(true)}
+            onMouseLeave={() => setIsProfileHovered(false)}
+            title="Hover to see me smile! 😊"
+          >
+            <img
+              src={avatarFocused}
+              alt="Emeka Avatar Focused"
+              className={`about-profile-image ${!isProfileHovered ? "active" : ""}`}
+            />
+            <img
+              src={avatarSmiling}
+              alt="Emeka Avatar Smiling"
+              className={`about-profile-image ${isProfileHovered ? "active" : ""}`}
+            />
           </div>
 
           <div className="about-stats-column reveal-on-scroll delay-100">
@@ -181,16 +198,6 @@ export default function AboutPage() {
           <p className="narrative-text">
             Alongside client and freelance work, Emeka is a 400-level electrical engineering student, giving him a technical grounding that shapes how he approaches problem-solving in software. He also teaches front-end development informally, helping newcomers get comfortable with HTML, CSS, and the fundamentals of building for the web.
           </p>
-        </div>
-      </section>
-
-      {/* Interactive Visual Showcase Banner */}
-      <section className="about-visual-banner reveal-on-scroll">
-        <div className="banner-img-box">
-          <img src={npjImg} alt="Work preview" className="banner-img" />
-        </div>
-        <div className="banner-img-box">
-          <img src={gazeImg} alt="Design preview" className="banner-img" />
         </div>
       </section>
 

@@ -1,0 +1,88 @@
+/* Floating Fixed Avatar Widget */
+.floating-avatar-widget {
+  position: fixed;
+  bottom: 86px;
+  right: 24px;
+  z-index: 9998;
+  width: 72px;
+  height: 72px;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-avatar-widget:hover {
+  transform: scale(1.1);
+}
+
+.avatar-circle-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+  border: 3px solid var(--accent-orange, #ff4a38);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.floating-avatar-widget:hover .avatar-circle-frame {
+  box-shadow: 0 18px 40px rgba(255, 74, 56, 0.35);
+  border-color: #ffffff;
+}
+
+.avatar-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.avatar-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Tooltip Badge */
+.avatar-tooltip {
+  position: absolute;
+  bottom: -32px;
+  right: 0;
+  background-color: rgba(17, 17, 17, 0.92);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.floating-avatar-widget:hover .avatar-tooltip {
+  opacity: 1;
+  transform: translateY(4px);
+}
+
+/* Mobile responsive positioning */
+@media (max-width: 768px) {
+  .floating-avatar-widget {
+    bottom: 86px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+}
