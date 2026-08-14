@@ -241,18 +241,113 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--pill-bg-hover);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
+/* Header Action Group (Get in touch + Mobile Hamburger) */
+.nav-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1005;
+}
+
+/* Floating Dark/Light Mode Toggle Button (Always at Bottom Right) */
+.floating-theme-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease;
+}
+
+.floating-theme-btn:hover {
+  transform: scale(1.1) rotate(12deg);
+}
+
+/* Mobile Hamburger Button (Hidden on Desktop) */
+.mobile-hamburger-btn {
+  display: none;
+}
+
+/* Mobile Responsiveness Rules */
+@media (max-width: 768px) {
   .navbar {
-    padding: 18px 24px;
+    padding: 16px 20px;
   }
-  
-  .nav-links {
+
+  .mobile-hamburger-btn {
+    display: flex;
+  }
+
+  .btn-get-in-touch {
+    padding: 5px 5px 5px 16px;
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .btn-get-in-touch .badge-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Mobile Fullscreen Navigation Menu Drawer */
+  .nav-right {
     display: none;
   }
 
-  .nav-right {
-    gap: 12px;
+  .nav-right.is-open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-primary);
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 24px;
+    box-sizing: border-box;
+    animation: fadeInDrawer 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .nav-right.is-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-right.is-open .nav-link {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    font-family: var(--font-family, 'Questrial', sans-serif);
+  }
+}
+
+@keyframes fadeInDrawer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

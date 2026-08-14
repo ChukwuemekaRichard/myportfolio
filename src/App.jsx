@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import "./App.css";
-import { Sun, Moon, Hand } from "lucide-react";
+import { Sun, Moon, Hand, Menu, X } from "lucide-react";
 import Lenis from "lenis";
 import Preloader from "./components/Preloader";
 import ScrollToTop from "./components/ScrollToTop";
@@ -48,6 +48,7 @@ export default function Portfolio() {
   const location = useLocation();
   const [isLoaded, setIsLoaded] = useState(false);
   const [loaderKey, setLoaderKey] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lenisRef = useRef(null);
 
   // Dark Mode Theme State with LocalStorage Persistence
@@ -66,12 +67,12 @@ export default function Portfolio() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
-  // Trigger page transition preloader curtain & scroll to top whenever route path changes
+  // Close mobile menu and reset scroll whenever route path changes
   useEffect(() => {
     setIsLoaded(false);
+    setIsMobileMenuOpen(false);
     setLoaderKey((prev) => prev + 1);
 
-    // Reset scroll immediately
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -121,54 +122,67 @@ export default function Portfolio() {
       />
 
       {/* Navbar matching reference design */}
-      <nav className="navbar">
-        <Link to="/" className="nav-brand">
+      <nav className={`navbar ${isMobileMenuOpen ? "mobile-menu-active" : ""}`}>
+        <Link to="/" className="nav-brand" onClick={() => setIsMobileMenuOpen(false)}>
           Emeka
         </Link>
 
-        <div className="nav-right">
+        {/* Top Navbar Header Actions Group (Get in touch + Mobile Hamburger) */}
+        <div className="nav-header-actions">
+          <a
+            href="https://wa.me/2348141761151"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-get-in-touch"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <span>Get in touch</span>
+            <div className="badge-icon">
+              <Hand size={18} />
+            </div>
+          </a>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="btn-icon-circle mobile-hamburger-btn"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+
+        {/* Mobile Fullscreen Navigation Menu Drawer */}
+        <div className={`nav-right ${isMobileMenuOpen ? "is-open" : ""}`}>
           <ul className="nav-links">
             <li>
-              <Link to="/work" className="nav-link">
+              <Link to="/work" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Work
               </Link>
             </li>
             <li>
-              <Link to="/services" className="nav-link">
+              <Link to="/services" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 Services
               </Link>
             </li>
             <li>
-              <Link to="/about" className="nav-link">
+              <Link to="/about" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
             </li>
           </ul>
-
-          <div className="nav-actions">
-            <a
-              href="https://wa.me/2348141761151"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-get-in-touch"
-            >
-              <span>Get in touch</span>
-              <div className="badge-icon">
-                <Hand size={18} />
-              </div>
-            </a>
-
-            <button
-              onClick={toggleTheme}
-              className="btn-icon-circle theme-toggle-btn"
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-              title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-          </div>
         </div>
       </nav>
+
+      {/* Floating Light/Dark Mode Toggle Button (Positioned at Bottom Right of Screen) */}
+      <button
+        onClick={toggleTheme}
+        className="btn-icon-circle theme-toggle-btn floating-theme-btn"
+        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      >
+        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+      </button>
 
       {/* Main Content View Container with Uncovering Coverture Page Wrapper */}
       <main className="main-content">
